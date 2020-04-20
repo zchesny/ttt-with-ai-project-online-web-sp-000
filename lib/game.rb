@@ -85,6 +85,7 @@ class Game
       puts "Enter 'X' to go first. (Computer will go second)"
       puts "Enter 'O' to go second. (Computer will go first)"
       token = gets.strip.upcase
+      case token 
       when "X"
         Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
       when "O"
@@ -104,6 +105,7 @@ class Game
     puts "Enter 'X' to go first. (Computer will go second)"
     puts "Enter 'O' to go second. (Computer will go first)"
     token = gets.strip.upcase
+
 
 
 
