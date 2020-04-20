@@ -82,6 +82,8 @@ class Game
     when "0"
       Game.new(Players::Computer.new("X"), Players::Computer.new("O"), board = Board.new).play
     when "1"
+      puts "Enter 'X' to go first. (Computer will go second)"
+      puts "Enter 'O' to go second. (Computer will go first)"
       Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
     when "2"
       Game.new.play
