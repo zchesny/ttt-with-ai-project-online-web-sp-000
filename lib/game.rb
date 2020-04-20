@@ -74,8 +74,11 @@ class Game
     puts "Enter 0 for 0 players"
     puts "Enter 1 for 1 player"
     puts "Enter 2 for 2 players"
+    puts ""
     type = gets.strip
     case type
+      # FIXME: create "wargames type"
+      # https://learn.co/tracks/full-stack-web-development-v8/module-6-object-oriented-ruby/section-17-final-projects/tic-tac-toe-with-ai
     when "0"
       Game.new(Players::Computer.new("X"), Players::Computer.new("O"), board = Board.new).play
     when "1"
