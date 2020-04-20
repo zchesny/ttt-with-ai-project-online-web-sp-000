@@ -74,18 +74,34 @@ class Game
     puts "Enter 0 for 0 players"
     puts "Enter 1 for 1 player"
     puts "Enter 2 for 2 players"
+    puts "To quit, type 'exit'"
     type = gets.strip
     case type
+      # FIXME: create "wargames type"
+      # https://learn.co/tracks/full-stack-web-development-v8/module-6-object-oriented-ruby/section-17-final-projects/tic-tac-toe-with-ai
     when "0"
       Game.new(Players::Computer.new("X"), Players::Computer.new("O"), board = Board.new).play
     when "1"
-      Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
+      puts "Enter 'X' to go first. (Computer will go second)"
+      puts "Enter 'O' to go second. (Computer will go first)"
+      token = gets.strip.upcase
+      case token
+      when "X"
+        Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
+      when "O"
+        Game.new(Players::Computer.new("X"), Players::Human.new("O"), board = Board.new).play
+      else
+        puts "Sorry, invalid input"
+      end
     when "2"
       Game.new.play
-    else
-      Game.start
+    when "exit"
+      return
     end
+    Game.start
   end
+
+
 
 
 
