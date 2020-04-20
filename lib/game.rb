@@ -85,6 +85,8 @@ class Game
       Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
     when "2"
       Game.new.play
+    when "exit"
+      return
     else
       Game.start
     end
