@@ -26,7 +26,6 @@ class Game
   end
 
   def won?
-    self.board.display
     WIN_COMBINATIONS.detect do |combo|
       self.board.cells[combo[0]] == self.board.cells[combo[1]] &&
       self.board.cells[combo[1]] == self.board.cells[combo[2]] &&
@@ -66,6 +65,25 @@ class Game
       puts "Cat's Game!"
     elsif self.won? != nil
       puts "Congratulations #{winner}!"
+    end
+  end
+
+  def self.start
+    puts "Welcome to Tic Tac Toe!"
+    puts "What kind of game would you like to play?"
+    puts "Enter 0 for 0 players"
+    puts "Enter 1 for 1 player"
+    puts "Enter 2 for 2 players"
+    type = gets.strip
+    case type
+    when "0"
+      Game.new(Players::Computer.new("X"), Players::Computer.new("O"), board = Board.new).play
+    when "1"
+      Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
+    when "2"
+      Game.new.play
+    else
+      Game.start
     end
   end
 
