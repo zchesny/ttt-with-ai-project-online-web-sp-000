@@ -100,6 +100,12 @@ class Game
     Game.start
   end
 
+  def self.one_player
+    puts "Enter 'X' to go first. (Computer will go second)"
+    puts "Enter 'O' to go second. (Computer will go first)"
+    token = gets.strip.upcase
+
+
 
 
 end
