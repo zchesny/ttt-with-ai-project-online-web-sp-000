@@ -84,7 +84,14 @@ class Game
     when "1"
       puts "Enter 'X' to go first. (Computer will go second)"
       puts "Enter 'O' to go second. (Computer will go first)"
-      Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
+      token = gets.strip.upcase
+      when "X"
+        Game.new(Players::Human.new("X"), Players::Computer.new("O"), board = Board.new).play
+      when "O"
+        Game.new(Players::Computer.new("X"), Players::Human.new("O"), board = Board.new).play
+      else
+        puts "Sorry, invalid input"
+      end
     when "2"
       Game.new.play
     when "exit"
