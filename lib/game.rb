@@ -87,9 +87,8 @@ class Game
       Game.new.play
     when "exit"
       return
-    else
-      Game.start
     end
+    Game.start
   end
 
 
